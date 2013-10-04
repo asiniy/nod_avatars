@@ -25,6 +25,7 @@ gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4', ref: '6c9e
 # Server part
 gem 'heroku'
 gem 'figaro'
+gem 'rails_12factor'
 
 # Use unicorn as the app server
 # gem 'unicorn'
