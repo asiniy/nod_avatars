@@ -1,16 +1,7 @@
 ActiveAdmin.setup do |config|
-
-  # == Site Title
-  #
-  # Set the title that is displayed on the main layout
-  # for each of the active admin pages.
-  #
-  config.site_title = "Nod Avatars"
-
-  # Set the link url for the title. For example, to take
-  # users to your main site. Defaults to no link.
-  #
-  # config.site_title_link = "/"
+  I18n.locale = :ru
+  config.site_title = "Аватары для НОД"
+  config.site_title_link = "/"
 
   # Set an optional image to be displayed for the header
   # instead of a string (overrides :site_title)
@@ -55,7 +46,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the controller.
-  config.authentication_method = :authenticate_admin_user!
+  config.authentication_method = :only_admin!
 
   # == User Authorization
   #
@@ -82,7 +73,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # to return the currently logged in user.
-  config.current_user_method = :current_admin_user
+  config.current_user_method = :current_user
 
 
   # == Logging Out
@@ -95,7 +86,7 @@ ActiveAdmin.setup do |config|
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :destroy_admin_user_session_path
+  config.logout_link_path = :destroy_user_session_path
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
@@ -124,7 +115,7 @@ ActiveAdmin.setup do |config|
   # config.show_comments_in_menu = false
   #
   # You can change the name under which comments are registered:
-  # config.comments_registration_name = 'AdminComment'
+  config.comments_registration_name = 'ActiveAdminComment'
 
 
   # == Batch Actions
@@ -140,8 +131,8 @@ ActiveAdmin.setup do |config|
   # Active Admin resources and pages from here.
   #
   # config.before_filter :do_something_awesome
-  
-  
+
+
   # == Setting a Favicon
   #
   # config.favicon = '/assets/favicon.ico'
@@ -228,4 +219,36 @@ ActiveAdmin.setup do |config|
   #
   # config.filters = true
 
+end
+
+
+module ActiveAdmin
+  module Views
+    class TableFor
+      def bool_column(attribute)
+        column(attribute) do |model|
+          if model[attribute] == true
+            '&#x2714;'.html_safe
+          elsif model[attribute] == false
+            '✖'.html_safe
+          else
+            '&#x2717;'.html_safe
+          end
+        end
+      end
+    end
+    class AttributesTable
+      def bool_row(attribute)
+        row(attribute) do |model|
+          if model[attribute] == true
+            '&#x2714;'.html_safe
+          elsif model[attribute] == false
+            '✖'.html_safe
+          else
+            '&#x2717;'.html_safe
+          end
+        end
+      end
+    end
+  end
 end

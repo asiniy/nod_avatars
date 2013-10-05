@@ -1,0 +1,32 @@
+ru:
+  activerecord:
+    errors:
+      not_admin: Вы должны быть зарегистрированы как администратор для выполнения этого действия
+      messages:
+        blank: не может быть пустым
+        taken: с таким значением уже существует
+      models:
+        user:
+          attributes:
+            password:
+              too_short: слишком короткий (надо 6-128 символов)
+            email:
+              taken: занят. Возможно, вы уже зарегистрированы?
+    models:
+      active_admin_comment:
+        one: Комментарий админа
+        few: Комментарии админа
+        many: Комментарии админа
+        other: Комментарии админа
+      user:
+        one: Пользователь
+        few: Пользователи
+        many: Пользователи
+        other: Пользователи
+    attributes:
+      user:
+        name: Имя
+        email: Email
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        admin: Админ

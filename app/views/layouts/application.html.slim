@@ -1,0 +1,22 @@
+doctype
+html
+  head
+    title Поддержи НОД, Патриот!
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+    - if admin_signed_in?
+      .admin_panel
+        div
+          span
+            ' Добро пожаловать,
+            = link_to current_user.name, admin_user_path(current_user), 'data-no-turbolink' => true
+          | |
+          span = link_to 'Выйти', destroy_user_session_path, method: :delete
+    - else
+      .admin_sign_in
+        div = link_to '•', new_user_session_path
+    p.notice= notice
+    p.alert= alert
+    = yield

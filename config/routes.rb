@@ -1,5 +1,6 @@
 NodAvatars::Application.routes.draw do
+  root to: 'pages#root'
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users
   ActiveAdmin.routes(self)
 end

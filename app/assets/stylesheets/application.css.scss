@@ -1,0 +1,30 @@
+body {
+  margin: 0px 0 0;
+  padding: 0;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+@mixin top-panel {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  box-sizing: border-box;
+
+  div {
+    padding: 10px;
+  }
+}
+
+.admin_panel {
+  @include top-panel;
+  background: rgba(255, 215, 0, 0.5);
+}
+
+.admin_sign_in {
+  @include top-panel;
+  text-align: right;
+}
