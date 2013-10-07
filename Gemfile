@@ -25,6 +25,11 @@ gem 'devise'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4', ref: '6c9e22ab09229b0903942179060c10cf5e3289d8'
 
+# ImageRendering
+gem 'fog'
+gem 'carrierwave'
+gem 'rmagick'
+
 # Server part
 gem 'heroku'
 gem 'figaro'

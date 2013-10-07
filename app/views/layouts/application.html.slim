@@ -4,6 +4,7 @@ html
     title Поддержи НОД, Патриот!
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "http://vk.com/js/api/openapi.js"
     = csrf_meta_tags
   body
     - if admin_signed_in?
