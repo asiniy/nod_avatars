@@ -8,3 +8,6 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# carrierwave tmp
+/public/uploads/tmp

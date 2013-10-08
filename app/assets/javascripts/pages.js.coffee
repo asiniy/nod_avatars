@@ -3,15 +3,15 @@ $ ->
     vkClick = $(this)
     VK.init apiId: vkClick.data('app-id')
     VK.Api.call 'users.get', fields: 'photo_big', (r) ->
-      vk_response = r.response[0]
+      vkResponse = r.response[0]
       $.post(vkClick.data('uri'),
         photo:
-          username: vk_response.first_name + " " + vk_response.last_name,
-          provider_uid: vk_response.uid,
+          username: vkResponse.first_name + " " + vkResponse.last_name,
+          provider_uid: vkResponse.uid,
           provider_name: 'vk',
-          remote_avatar_url: vk_response.photo_big
+          remote_avatar_url: vkResponse.photo_big
       ).done (data) ->
-        if data.success == true
-          console.log('Успех')
+        if data.photo.uid != null
+          console.log('Сохранено')
         else
           console.log('Ошибка')
