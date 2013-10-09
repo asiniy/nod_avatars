@@ -29,6 +29,7 @@ gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4', ref: '6c9e
 gem 'fog'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'masonry-rails'
 
 # Server part
 gem 'heroku'
