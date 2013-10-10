@@ -1,3 +1,5 @@
 class PagesController < ApplicationController
-  def root ; end
+  def root
+    @photos = Photo.published.order('id DESC')
+  end
 end
