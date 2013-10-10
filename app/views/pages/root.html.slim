@@ -5,10 +5,6 @@ p
 
 h3
   ' Общее число фотографий:
-  = @photos.count
+  span#photo_count = @photos.count
 
-#container
-  - @photos.each do |photo|
-    .item
-      = image_tag photo.avatar_url
-      p = "Фото №#{photo.id}"
+#container = render partial: 'photos/photo', collection: @photos

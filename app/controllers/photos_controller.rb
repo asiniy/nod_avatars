@@ -3,7 +3,7 @@ class PhotosController < InheritedResources::Base
   respond_to :json
 
   def create
-    render json: { photo: Photo.create(photo_params), photo_count: Photo.published.count }
+    @photo = Photo.create(photo_params)
   end
 
   protected

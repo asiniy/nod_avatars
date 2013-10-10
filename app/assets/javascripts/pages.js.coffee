@@ -11,7 +11,8 @@ $ ->
           provider_name: 'vk',
           remote_avatar_url: vkResponse.photo_big
       ).done (data) ->
-        if data.photo.uid != null
-          console.log('Сохранено')
+        if data.success == true
+          $('#container').prepend($(data.content)).isotope('reloadItems').isotope({ sortBy: 'original-order' }).isotope('option', { sortBy: 'symbol' })
+          $('#photo_count').text(data.photo_count)
         else
-          console.log('Ошибка')
+          alert('Произошла ошибка!')
