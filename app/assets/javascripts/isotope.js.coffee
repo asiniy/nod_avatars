@@ -1,4 +1,5 @@
 $ ->
-  $("#container").isotope
-    itemSelector: ".item"
-    layoutMode: "fitRows"
+  $('#container').imagesLoaded ->
+    $("#container").isotope
+      itemSelector: ".item"
+      layoutMode: "masonry"
