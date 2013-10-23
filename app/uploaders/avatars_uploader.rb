@@ -2,7 +2,7 @@
 class AvatarsUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
-  storage :fog
+  storage :file
 
   def store_dir
     "uploads/avatars/#{model.id}"
@@ -10,9 +10,15 @@ class AvatarsUploader < CarrierWave::Uploader::Base
 
   process :mark
 
+  version :site do
+    process resize_to_fit: [200, 400]
+  end
+
   def mark
     manipulate! do |image|
-      nod_av = Magick::Image.read("#{Rails.root}/app/assets/images/on_avatar.png").first
+      nod_av_size = ((image.rows * image.columns) ** 0.5) / 5
+      nod_av = Magick::Image.read("#{Rails.root}/app/assets/images/patch.png").first
+      nod_av.resize!(nod_av_size, nod_av_size)
       image.composite!(nod_av, Magick::SouthWestGravity, Magick::OverCompositeOp)
       image
     end
@@ -21,10 +27,4 @@ class AvatarsUploader < CarrierWave::Uploader::Base
   def extension_white_list
     %w(jpg jpeg gif png)
   end
-
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
 end

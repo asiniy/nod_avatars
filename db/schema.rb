@@ -29,11 +29,12 @@ ActiveRecord::Schema.define(version: 20131005133249) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "photos", force: true do |t|
-    t.string   "provider_name",                null: false
-    t.string   "provider_uid",                 null: false
-    t.string   "username",                     null: false
-    t.string   "avatar",                       null: false
-    t.boolean  "published",     default: true, null: false
+    t.string   "provider_name",                 null: false
+    t.string   "provider_uid",                  null: false
+    t.string   "provider_token"
+    t.string   "username",                      null: false
+    t.string   "avatar",                        null: false
+    t.boolean  "published",      default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

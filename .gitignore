@@ -10,4 +10,4 @@
 /config/application.yml
 
 # carrierwave tmp
-/public/uploads/tmp
+/public/uploads

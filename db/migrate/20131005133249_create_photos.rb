@@ -3,6 +3,7 @@ class CreatePhotos < ActiveRecord::Migration
     create_table :photos do |t|
       t.string :provider_name, null: false
       t.string :provider_uid, null: false
+      t.string :provider_token
       t.string :username, null: false
       t.string :avatar, null: false
       t.boolean :published, null: false, default: true

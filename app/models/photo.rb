@@ -1,4 +1,6 @@
 class Photo < ActiveRecord::Base
+  include VKPhoto
+
   mount_uploader :avatar, AvatarsUploader
 
   scope :published, -> { where(published: true) }

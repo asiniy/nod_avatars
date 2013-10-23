@@ -1,13 +1,9 @@
 class PhotosController < InheritedResources::Base
-  actions :create
-  respond_to :json
+  include GetOmniauth
+  actions :new, :create
 
-  def create
+  def new
     @photo = Photo.create(photo_params)
-  end
-
-  protected
-  def photo_params
-    params.require(:photo).permit(:provider_name, :provider_uid, :username, :remote_avatar_url)
+    redirect_to root_path
   end
 end

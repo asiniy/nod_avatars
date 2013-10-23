@@ -31,6 +31,11 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'masonry-rails'
 
+# Social-networks
+gem 'omniauth'
+gem 'omniauth-vkontakte'
+gem 'rest-client' # for vk api
+
 # Server part
 gem 'heroku'
 gem 'figaro'
