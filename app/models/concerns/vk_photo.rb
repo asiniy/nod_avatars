@@ -4,7 +4,7 @@ module VKPhoto
   extend ActiveSupport::Concern
 
   included do
-    attr_accessor :vk_photo_uploaded
+    attr_accessor :vk_photo_hash
 
     def provider_is_vk?
       self.provider_name == 'vk'
@@ -33,9 +33,7 @@ module VKPhoto
         upload_hash = JSON.parse(RestClient.post(remote_url, access_token: self.provider_token, photo: File.new(self.avatar.path, 'rb')))
 
         # 3. saveProfilePhoto vk api method
-        vk_photo_hash = JSON.parse(RestClient.post(save_profile_photo_url, server: upload_hash['server'], photo: upload_hash['photo'], hash: upload_hash['hash'], access_token: self.provider_token))
-
-        raise upload_hash.inspect
+        self.vk_photo_hash = JSON.parse(RestClient.post(save_profile_photo_url, server: upload_hash['server'], photo: upload_hash['photo'], hash: upload_hash['hash'], access_token: self.provider_token))['response']['photo_hash']
       end
     }
   end
