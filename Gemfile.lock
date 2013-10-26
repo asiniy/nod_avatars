@@ -55,6 +55,10 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.1.4)
+    capistrano (3.0.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 0.0.23)
     carrierwave (0.9.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -201,6 +205,8 @@ GEM
     rmagick (2.13.2)
     ruby-hmac (0.4.0)
     rubyzip (1.0.0)
+    rvm-capistrano (1.2.7)
+      capistrano (>= 2.0.0)
     sass (3.2.11)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -223,7 +229,13 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sshkit (1.1.0)
+      net-scp
+      net-ssh
+      term-ansicolor
     temple (0.6.7)
+    term-ansicolor (1.2.2)
+      tins (~> 0.8)
     thin (1.6.0)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -232,6 +244,7 @@ GEM
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
+    tins (0.12.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -250,6 +263,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   bcrypt-ruby (~> 3.0.0)
+  capistrano
   carrierwave
   coffee-rails (~> 4.0.0)
   devise
@@ -267,6 +281,7 @@ DEPENDENCIES
   rails_12factor
   rest-client
   rmagick
+  rvm-capistrano (= 1.2.7)
   sass-rails (~> 4.0.0)
   slim-rails
   thin

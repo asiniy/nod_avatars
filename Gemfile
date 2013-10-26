@@ -36,6 +36,10 @@ gem 'omniauth'
 gem 'omniauth-vkontakte'
 gem 'rest-client' # for vk api
 
+# Deploying
+gem 'capistrano'
+gem 'rvm-capistrano', '1.2.7'
+
 # Server part
 gem 'heroku'
 gem 'figaro'
