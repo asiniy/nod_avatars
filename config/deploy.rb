@@ -1,65 +1,41 @@
-# bundler
-require 'bundler/capistrano'
-before 'bundle:install' do
-  # Install the pg gem
-  run "cd #{fetch(:latest_release)} && bundle config build.pg --with-pg-config=/usr/pgsql-9.1/bin/pg_config"
-end
+set :application, '91.231.85.175'
+set :repo_url, 'git@github.com:asiniy/nod_avatars.git'
 
-set :application, "91.231.85.175"
-set :repository,  "git@github.com:asiniy/nod_avatars.git"
+# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
+
+set :deploy_to, '/home/asiniy/nod_avatars'
 set :scm, :git
-set :deploy_to, "/home/asiniy/nod_avatars"
 set :use_sudo, false
-set :rails_env, "production"
-set :user, "asiniy"  # The server's user for deploys
+set :user, 'asiniy'
 
-# default_run_options[:pty] = true
-ssh_options[:forward_agent] = true
-ssh_options[:keys] = [File.join(ENV['HOME'], '.ssh', 'id_rsa')]
+# set :format, :pretty
+# set :log_level, :debug
+# set :pty, true
 
-# rvm/capistrano
-require 'rvm/capistrano'
-set :rvm_ruby_string, 'ruby-2.0.0-p195@nod_avatars'
-set :rvm_type, :user
+set :linked_files, %w{config/database.yml config/application.yml .ruby-version .ruby-gemset}
+# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-role :web, "91.231.85.175"                   # Your HTTP server, Apache/etc
-role :app, "91.231.85.175"                   # This may be the same as your `Web` server
-role :db,  "91.231.85.175", :primary => true # This is where Rails migrations will run
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :keep_releases, 5
 
-# if you want to clean up old releases on each deploy uncomment this:
-#after "deploy:restart", "deploy:cleanup"
-before 'deploy:assets:precompile', 'deploy:symlinks_shared'
-after "deploy:finalize_update", "carrierwave:symlink"
-
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
-
-# If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
-  desc "Restarting the app"
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-  end
 
-  desc "Symlinks the needed files"
-  task :symlinks_shared, roles: :app do
-    %w(config/database.yml config/application.yml .ruby-version .ruby-gemset).each do |symlink|
-      run "ln -nfs #{shared_path}/#{symlink} #{release_path}/#{symlink}"
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      # Your restart mechanism here, for example:
+      # execute :touch, release_path.join('tmp/restart.txt')
     end
   end
-end
 
-namespace :carrierwave do
-  task :symlink, roles: :app do
-    run "ln -nfs #{shared_path}/public/uploads/ #{release_path}/public/uploads"
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
+    end
   end
-end
 
-desc "Returns last lines of log file. Usage: cap log [-s lines=100] [-s rails_env=production]"
-task :log do
-  lines = 100
-  rails_env = 'production'
-  run "tail -n #{lines} #{deploy_to}/current/log/#{rails_env}.log" do |ch, stream, out|
-    puts out
-  end
+  after :finishing, 'deploy:cleanup'
 end
