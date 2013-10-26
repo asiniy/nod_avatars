@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
-
 gem 'rails', '4.0.0'
 gem 'pg'
 
@@ -38,7 +36,9 @@ gem 'rest-client' # for vk api
 
 # Deploying
 gem 'capistrano', '3.0.0'
-gem 'capistrano-rvm', '0.0.3'
+gem 'capistrano-rvm'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
 
 # Server part
 gem 'heroku'

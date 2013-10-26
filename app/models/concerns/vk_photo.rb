@@ -23,7 +23,7 @@ module VKPhoto
         get_upload_server_url = "https://api.vkontakte.ru/method/photos.getProfileUploadServer"
         save_profile_photo_url = 'https://api.vkontakte.ru/method/photos.saveProfilePhoto'
 
-        # stroing avatar in the fog
+        # stroing avatar
         self.avatar.store!
 
         # 1. get the remote server address for uploading
