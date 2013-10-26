@@ -13,7 +13,7 @@ set :user, 'asiniy'
 # set :pty, true
 
 set :linked_files, %w{config/database.yml config/application.yml .ruby-version .ruby-gemset}
-# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 5
