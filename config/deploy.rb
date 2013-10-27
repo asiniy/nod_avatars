@@ -20,6 +20,9 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 5
 
+SSHKit.config.command_map[:rake]  = "bundle exec rake"
+SSHKit.config.command_map[:rails] = "bundle exec rails"
+
 namespace :deploy do
   desc 'Restart application'
   task :restart do
