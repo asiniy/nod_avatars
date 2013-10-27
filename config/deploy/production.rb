@@ -1,4 +1,7 @@
 set :stage, :production
+set :rails_env, :production
+
+set :rvm_type, :user
 
 # Simple Role Syntax
 # ==================

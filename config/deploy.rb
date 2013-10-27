@@ -42,16 +42,14 @@ namespace :deploy do
 
   after :finishing, 'deploy:cleanup'
 
-  namespace :assets do
-    task :precompile do
-      on :sprockets_asset_host, reject: lambda { |h| h.properties.no_release } do
-        within fetch(:latest_release_directory) do
-          with rails_env: fetch(:rails_env) do
-            raise fetch(:rails_env).inspect
-            execute :rake, 'assets:precompile'
-          end
-        end
-      end
-    end
-  end
+#  namespace :assets do
+#    task :precompile do
+#      within fetch(:latest_release_directory) do
+#        with rails_env: fetch(:rails_env) do
+#          raise fetch(:rails_env).inspect
+#          execute :rake, 'assets:precompile'
+#        end
+#      end
+#    end
+#  end
 end

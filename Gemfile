@@ -36,12 +36,6 @@ gem 'omniauth'
 gem 'omniauth-vkontakte'
 gem 'rest-client' # for vk api
 
-# Deploying
-gem 'capistrano', '3.0.0'
-gem 'capistrano-rvm'
-gem 'capistrano-bundler'
-gem 'capistrano-rails'
-
 # Server part
 gem 'heroku'
 gem 'figaro'
@@ -50,4 +44,10 @@ gem 'rails_12factor', group: :production
 group :development do
   gem 'thin'
   gem 'quiet_assets'
+
+  # Deploying
+  gem 'capistrano', '3.0.0'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
 end
