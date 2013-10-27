@@ -39,7 +39,7 @@ server '91.231.85.175', user: 'asiniy', roles: %w{web app db}
 
 task :precompile do
   on :sprockets_asset_host, reject: lambda { |h| h.properties.no_release } do
-    within fetch(:latest_release_directory)
+    within fetch(:latest_release_directory) do
       with rails_env: fetch(:rails_env) do
         execute :rake, 'assets:precompile'
       end
