@@ -12,7 +12,7 @@ set :user, 'asiniy'
 # set :log_level, :debug
 # set :pty, true
 
-set :rvm_ruby_version, '2.0.0-p195'
+set :rvm_ruby_version, '2.0.0-p195@nod_avatars'
 
 set :linked_files, %w{config/database.yml config/application.yml .ruby-version .ruby-gemset}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
