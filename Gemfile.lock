@@ -212,8 +212,6 @@ GEM
     rmagick (2.13.2)
     ruby-hmac (0.4.0)
     rubyzip (1.0.0)
-    rvm-capistrano (1.2.7)
-      capistrano (>= 2.0.0)
     sass (3.2.11)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -281,7 +279,6 @@ DEPENDENCIES
   rails_12factor
   rest-client
   rmagick
-  rvm-capistrano (= 1.2.7)
   sass-rails (~> 4.0.0)
   slim-rails
   thin
