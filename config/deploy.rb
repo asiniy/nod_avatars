@@ -19,7 +19,7 @@ ssh_options[:keys] = [File.join(ENV['HOME'], '.ssh', 'id_rsa')]
 
 # rvm/capistrano
 require 'rvm/capistrano'
-set :rvm_ruby_string, 'ruby-2.0.0-p195@nod_avatars'
+set :rvm_ruby_string, '2.0.0-p195@nod_avatars'
 set :rvm_type, :user
 
 role :web, "91.231.85.175"                   # Your HTTP server, Apache/etc
