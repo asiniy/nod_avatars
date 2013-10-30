@@ -46,8 +46,5 @@ group :development do
   gem 'quiet_assets'
 
   # Deploying
-  gem 'capistrano', '3.0.0'
-  gem 'capistrano-rvm'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
+  gem 'capistrano', '2.15.3'
 end
