@@ -47,5 +47,5 @@ group :development do
 
   # Deploying
   gem 'capistrano', '2.15.3'
-  gem 'rvm-capistrano', '1.3.0'
+  gem 'rvm-capistrano', '1.4.0'
 end
