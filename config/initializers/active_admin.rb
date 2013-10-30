@@ -1,3 +1,4 @@
+# coding: utf-8;
 ActiveAdmin.setup do |config|
   I18n.locale = :ru
   config.site_title = "Аватары для НОД"
