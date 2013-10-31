@@ -30,6 +30,7 @@ role :db,  "91.231.85.175", :primary => true # This is where Rails migrations wi
 #after "deploy:restart", "deploy:cleanup"
 after 'deploy:assets:symlink', 'deploy:symlinks_shared'
 after 'deploy:assets:symlink', 'carrierwave:symlink'
+before 'bundle:install', 'deploy:rvm_use'
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
@@ -46,7 +47,11 @@ namespace :deploy do
     %w(config/database.yml config/application.yml .ruby-version .ruby-gemset).each do |symlink|
       run "ln -nfs #{shared_path}/#{symlink} #{release_path}/#{symlink}"
     end
-    run "cd #{release_path}"
+  end
+
+  desc "RVM use 2.0"
+  task :rvm_use, roles: :app do
+    run "rvm use 2.0.0-p195@nod_avatars"
   end
 end
 
