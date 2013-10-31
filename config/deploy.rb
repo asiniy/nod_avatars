@@ -51,7 +51,7 @@ namespace :deploy do
 
   desc "RVM use 2.0"
   task :rvm_use, roles: :app do
-    run "/bin/bash --login rvm use 2.0.0-p195@nod_avatars"
+    run "cd #{release_path} && rvm use 2.0.0-p195@nod_avatars"
   end
 end
 
