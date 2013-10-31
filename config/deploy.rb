@@ -46,6 +46,7 @@ namespace :deploy do
     %w(config/database.yml config/application.yml .ruby-version .ruby-gemset).each do |symlink|
       run "ln -nfs #{shared_path}/#{symlink} #{release_path}/#{symlink}"
     end
+    cd "#{release_path}"
   end
 end
 
