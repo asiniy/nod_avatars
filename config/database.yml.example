@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: asiniy_development
+  pool: 5
+  username: asiniy
+  password: secret
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: asiniy_test
+  pool: 5
+  username: asiniy
+  password: secret
+  host: localhost
