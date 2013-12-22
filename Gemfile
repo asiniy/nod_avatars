@@ -37,7 +37,6 @@ gem 'omniauth-vkontakte'
 gem 'rest-client' # for vk api
 
 # Server part
-gem 'heroku'
 gem 'figaro'
 
 group :development do
