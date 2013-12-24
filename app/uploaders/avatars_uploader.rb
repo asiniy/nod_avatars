@@ -16,7 +16,7 @@ class AvatarsUploader < CarrierWave::Uploader::Base
 
   def mark
     manipulate! do |image|
-      nod_av_size = ((image.rows * image.columns) ** 0.5) / 5
+      nod_av_size = ((image.rows * image.columns)**0.5) / 5
       nod_av = Magick::Image.read("#{Rails.root}/app/assets/images/patch.png").first
       nod_av.resize!(nod_av_size, nod_av_size)
       image.composite!(nod_av, Magick::SouthWestGravity, Magick::OverCompositeOp)

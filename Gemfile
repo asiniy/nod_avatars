@@ -39,6 +39,10 @@ gem 'rest-client' # for vk api
 # Server part
 gem 'figaro'
 
+group :production do
+  gem 'rubocop', require: false
+end
+
 group :development do
   gem 'thin'
   gem 'quiet_assets'

@@ -11,3 +11,5 @@
 
 # carrierwave tmp
 /public/uploads
+
+/.rubocop.yml
