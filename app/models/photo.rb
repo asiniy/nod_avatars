@@ -6,11 +6,11 @@ class Photo < ActiveRecord::Base
   scope :published, -> { where(published: true) }
 
   validates :provider_uid,
-    presence: true
+            presence: true
 
   validates :provider_name,
-    presence: true
+            presence: true
 
   validates :username,
-    presence: true
+            presence: true
 end
