@@ -1,6 +1,8 @@
-@import 'isotope.css';
-@import 'isotope';
-@import 'pages';
+/*
+  *= require_self
+  *= require_tree
+  *= stub active_admin
+*/
 
 body {
   margin: 0px 0 0;

@@ -1,7 +1,6 @@
-h1 Pages#root
-p Find me in app/views/pages/root.html.slim
-p
-  = link_to(image_tag('vk.png', id: 'vk_click', data: { app_id: ENV['VK_APP_ID'], uri: '/photos' }), '/auth/vk')
+h1 Поддержи НОД, патриот!
+
+p = link_to(image_tag('vk.png', id: 'vk_click', data: { app_id: ENV['VK_APP_ID'], uri: '/photos' }), '/auth/vk')
 
 #vk_photo_form
 
