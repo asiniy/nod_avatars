@@ -4,4 +4,4 @@
 #= require turbolinks
 #= require isotope
 #= require_tree .
-#= stub active_admin
+#= exclude active_admin

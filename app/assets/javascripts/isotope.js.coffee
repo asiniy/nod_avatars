@@ -1,5 +1,5 @@
 $ ->
   $('#container').imagesLoaded ->
-    $("#container").isotope
-      itemSelector: ".item"
-      layoutMode: "masonry"
+    $('#container').isotope
+      itemSelector: '.item'
+      layoutMode: 'masonry'

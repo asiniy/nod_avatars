@@ -16,6 +16,7 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'masonry-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
@@ -29,7 +30,6 @@ gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4', ref: '6c9e
 gem 'fog'
 gem 'carrierwave'
 gem 'rmagick'
-gem 'masonry-rails'
 
 # Social-networks
 gem 'omniauth'
@@ -39,13 +39,13 @@ gem 'rest-client' # for vk api
 # Server part
 gem 'figaro'
 
-group :production do
-  gem 'rubocop', require: false
-end
-
 group :development do
   gem 'thin'
   gem 'quiet_assets'
+  gem 'pry'
+
+  # Code analysis
+  gem 'rubocop', require: false
 
   # Deploying
   gem 'capistrano', '2.15.3'

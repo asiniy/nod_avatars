@@ -6,12 +6,15 @@
   width: 1000px;
 
   .item {
-
     .credentials {
       img {
         width: 16px;
         height: 16px;
       }
     }
+  }
+
+  .published {
+    background: yellow;
   }
 }
