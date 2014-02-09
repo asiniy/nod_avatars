@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     admin_signed_in? ? admin_root_path : root_path
   end
+
+  public
+
+  def failed_oauth
+    redirect_to root_path, flash: { alert: 'Вы не прошли авторизацию!' }
+  end
 end
