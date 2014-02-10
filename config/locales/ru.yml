@@ -23,6 +23,11 @@ ru:
         few: Пользователи
         many: Пользователи
         other: Пользователи
+      photo:
+        one: Фотография
+        few: Фотографии
+        many: Фотографии
+        other: Фотографии
     attributes:
       user:
         name: Имя
@@ -30,3 +35,7 @@ ru:
         password: Пароль
         password_confirmation: Подтверждение пароля
         admin: Админ
+      photo:
+        username: Имя пользователя
+        provider_name: Провайдер
+        avatar: Аватар
