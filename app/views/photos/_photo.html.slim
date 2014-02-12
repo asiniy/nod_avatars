@@ -2,5 +2,5 @@
   = image_tag photo.avatar_url(:site)
   p.credentials
     = link_to social_network_path(photo) do
-      =' image_tag "#{photo.provider_name}_icon.png"
+      = social_network_icon(photo)
       = photo.username

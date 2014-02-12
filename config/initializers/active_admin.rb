@@ -222,6 +222,10 @@ ActiveAdmin.setup do |config|
 
 end
 
+module ActiveAdmin::ViewHelpers
+  include ApplicationHelper
+end
+
 module ActiveAdmin
   module Views
     def self.parse_model_attribute(model, attribute)
