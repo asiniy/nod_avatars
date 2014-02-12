@@ -1,6 +1,8 @@
 ActiveAdmin.register Photo do
   index do
-    column :username
+    column :username do |photo|
+      link_to photo.username, social_network_url(photo)
+    end
     column :provider_name do |photo|
       social_network_icon(photo)
     end

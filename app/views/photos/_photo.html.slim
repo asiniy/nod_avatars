@@ -1,6 +1,6 @@
 .item class="#{"published" if params[:photo_id] == photo.id.to_s}"
   = image_tag photo.avatar_url(:site)
   p.credentials
-    = link_to social_network_path(photo) do
+    = link_to social_network_url(photo) do
       = social_network_icon(photo)
       = photo.username
