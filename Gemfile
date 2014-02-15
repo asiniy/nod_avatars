@@ -44,6 +44,10 @@ group :development do
   gem 'quiet_assets'
   gem 'pry'
 
+  # Populate
+  gem 'faker'
+  gem 'fabrication'
+
   # Code analysis
   gem 'rubocop', require: false
 

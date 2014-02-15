@@ -2,3 +2,10 @@
 [![Code Climate](https://codeclimate.com/github/asiniy/nod_avatars.png)](https://codeclimate.com/github/asiniy/nod_avatars)
 
 [Аватары для НОД](http://nodavs.asiniy.ru)
+
+
+Для создания набора картинок используй:
+
+```bash
+rake db:populate
+```
