@@ -6,6 +6,7 @@ gem 'rails', '4.0.2'
 gem 'pg'
 
 # Rendering
+gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'slim-rails'
 
 # Use SCSS for stylesheets

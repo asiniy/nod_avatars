@@ -9,16 +9,24 @@ html lang='ru'
     = csrf_meta_tags
   body
     - if admin_signed_in?
-      .admin_panel
+      .alert.alert-success.adminpanel
         div
           span
-            ' Добро пожаловать,
-            = link_to current_user.name, admin_user_path(current_user), 'data-no-turbolink' => true
-          | |
-          span = link_to 'Выйти', destroy_user_session_path, method: :delete
-    - else
-      .admin_sign_in
-        div = link_to '•', new_user_session_path
-    p.notice= notice
-    p.alert= alert
-    = yield
+            p Добро пожаловать,
+            p = current_user.name
+            p
+              =' link_to 'Админпанель', admin_user_path(current_user), 'data-no-turbolink' => true, class: 'alert-link'
+              ' |
+              = link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'alert-link'
+    .alert.alert-warning.author
+      ' сделал
+      = link_to 'Александр Антонов', 'http://asiniy.ru', class: 'alert-link'
+    .header
+      .container = link_to image_tag('logo.png'), root_path
+    .container
+      - flash.each do |key, value|
+        .row.top_buffer
+          .col-md-10.col-md-offset-1
+            .alert class="alert-#{key}" = value
+      .row
+        .col-md-12 = yield

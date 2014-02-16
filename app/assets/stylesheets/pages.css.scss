@@ -6,6 +6,7 @@
   width: 1000px;
 
   .item {
+    img { width: 200px; }
     .credentials {
       img {
         width: 16px;
@@ -14,7 +15,7 @@
     }
   }
 
-  .published {
+  .published_just_now {
     background: yellow;
   }
 }

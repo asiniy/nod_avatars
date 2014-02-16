@@ -1,4 +1,4 @@
-.item class="#{"published" if params[:photo_id] == photo.id.to_s}"
+.item class="#{"published_just_now" if params[:photo_id] == photo.id.to_s}"
   = image_tag photo.avatar_url(:site)
   p.credentials
     = link_to social_network_url(photo) do

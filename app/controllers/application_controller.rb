@@ -19,6 +19,6 @@ class ApplicationController < ActionController::Base
   public
 
   def failed_oauth
-    redirect_to root_path, flash: { alert: 'Вы не прошли авторизацию!' }
+    redirect_to root_path, flash: { danger: t('photo_publisher.unauthorized') }
   end
 end

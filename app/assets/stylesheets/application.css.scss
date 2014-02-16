@@ -1,4 +1,5 @@
 /*
+  *= require bootstrap
   *= require_self
   *= require_tree
   *= stub active_admin
@@ -9,28 +10,24 @@ body {
   padding: 0;
 }
 
-a {
-  color: blue;
-  text-decoration: none;
+.top_buffer {
+  margin-top: 20px;
 }
 
-@mixin top-panel {
+.adminpanel {
   position: fixed;
-  top: 0px;
-  width: 100%;
-  box-sizing: border-box;
-
-  div {
-    padding: 10px;
-  }
+  width: 300px;
+  top: 100px;
+  left: 50px;
 }
 
-.admin_panel {
-  @include top-panel;
-  background: rgba(255, 215, 0, 0.5);
+.author {
+  position: fixed;
+  width: 300px;
+  bottom: 50px;
+  right: 50px;
 }
 
-.admin_sign_in {
-  @include top-panel;
-  text-align: right;
+.header {
+  background: url('/assets/background_top.png') repeat-x;
 }

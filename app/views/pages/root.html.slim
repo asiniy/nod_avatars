@@ -1,11 +1,12 @@
-h1 Поддержи НОД, патриот!
+h3.text-center
+  ' Прикрепи изображение флага
+  = link_to 'НОД', 'http://rusnod.ru'
+h3.text-center к своему аватару в социальных сетях
 
-p = link_to(image_tag('vk.png', id: 'vk_click', data: { app_id: ENV['VK_APP_ID'], uri: '/photos' }), '/auth/vk')
+.text-center.top_buffer
+  = link_to(image_tag('vk.png', id: 'vk_click'), '/auth/vk')
 
-#vk_photo_form
-
-h3
-  ' Общее число фотографий:
-  span#photo_count = @photos.count
+h3.text-center Нас уже:
+h1.text-center = Photo.published.count
 
 .container#container = render partial: 'photos/photo', collection: @photos

@@ -5,10 +5,6 @@ class PhotoPublisher
     @photo.try(:id)
   end
 
-  def error
-    'Ошибка сохранения' # TODO уточнить что за ошибка
-  end
-
   def initialize(ohash)
     @photo = Photo.new(parse_hash(ohash))
   end
