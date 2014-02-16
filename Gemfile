@@ -42,7 +42,6 @@ gem 'figaro'
 group :development do
   gem 'thin'
   gem 'quiet_assets'
-  gem 'pry'
 
   # Populate
   gem 'faker'
@@ -54,4 +53,12 @@ group :development do
   # Deploying
   gem 'capistrano', '2.15.3'
   gem 'rvm-capistrano', '1.4.0'
+end
+
+group :console do
+  gem 'pry-rails'
+  gem 'pry-highlight'
+  gem 'pry-coolline'
+  gem 'table_print'
+  gem 'marco-polo'
 end
